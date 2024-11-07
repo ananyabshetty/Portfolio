@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananya B Shetty | Web Developer</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+           
+        }
+
+        /* Animated Gradient Background */
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background-size: 600% 600%;
+            animation: gradientAnimation 10s ease infinite;
+            cursor: none;
+        }
+
+        /* Keyframes for Background Animation */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 136, 204, 0.7); /* Customize color */
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.15s ease, width 0.15s ease, height 0.15s ease;
+    z-index: 9999;
+    mix-blend-mode: difference; /* Adds a contrast effect */
+}
+
+/* Scale up the cursor on hover over interactive elements */
+a:hover ~ .custom-cursor, 
+button:hover ~ .custom-cursor {
+    transform: scale(1.5);
+    background-color: rgba(4, 2, 0, 0.8); /* Optional color change */
+    width: 25px;
+    height: 25px;
+}
+        /* Header Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #000000;
+        }
+
+        .profile-pic img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic img:hover {
+            transform: scale(1.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-top: 1rem;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            color: #555555;
+        }
+
+        /* Sections */
+      
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #000000;
+        }
+               
+
+        /* Card Style */
+        .card {
+            background: #fff;
+            color: #000000; /* or any other color you prefer for the text in cards */
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+            margin: 1rem;
+            max-width: 420px;
+            overflow: hidden;
+        }
+    
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+  
+/* Card Style for Consistency */
+
+
+.card-image {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+        /* About Me Content */
+        .about-content p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+        #about .about-card {
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Optional: limits the width */
+    margin: 0 auto; /* Center the card */
+}
+
+#about .about-content p {
+    color: black; /* Ensure text is visible on the white background */
+}
+
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.0rem;
+            background: #333;
+            color: rgb(255, 255, 255);
+            font-size: 0.9rem;
+        }
+
+        /* Smooth Scroll Animation */
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Skills Table */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            box-shadow: 0 10px 15px rgba(255, 253, 253, 0.1);
+        }
+
+        .skills-table th,
+        .skills-table td {
+            padding: 1rem;
+            text-align: left;
+            font-size: 1.1rem;
+            color: #000000;
+        }
+
+        .skills-table th {
+            background: #02afbf;
+            color: white;
+            font-weight: bold;
+        }
+
+        .skills-table tr:nth-child(even) {
+            background-color: #ffffff;
+
+        }
+
+        .skills-table tr:hover {
+            background-color: #007281;
+            color: black;
+        }
+
+/* List Styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+    
+    
+}
+
+ul li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+    
+}
+
+
+section {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(40px); /* Start with slide-in from bottom */
+            transition: opacity 1s ease, transform 1s ease;
+            position: relative;
+        }
+        .slide-in-left {
+            transform: translateX(-40px);
+        }
+
+        .slide-in-right {
+            transform: translateX(40px);
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section.visible.slide-in-left {
+            transform: translateX(0);
+        }
+
+        section.visible.slide-in-right {
+            transform: translateX(0);
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures video covers the entire screen */
+            z-index: -1;
+        }
+        header, footer,  h1, h2 {
+    color: #ffffff !important;
+}
+.card ul {
+    color: black;
+}
+
+    </style>
+</head>
+<body>
+    <video class="video-background" autoplay loop muted>
+        <source src="xyz.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Header Section with Profile Picture -->
+    <header>
+        <div class="profile-pic">
+            <img src="profile.png" alt="Ananya B Shetty Profile Picture" style="border: #000000;">
+        </div>
+        <h1 style="font-size: 50px;">Ananya B Shetty</h1>
+        <h3>Student | Web Developer | Project Manager | Enthusiast Learner</h3>
+    </header>
+
+    <!-- About Me Section -->
+     
+    <section id="about" class="hidden slide-in-left">
+        <h2 class="interactive">About Me</h2>
+        <div class="about-card">
+            <div class="about-content">
+                <p>
+                    Hi, I'm <strong>Ananya B Shetty</strong>, a passionate <span class="highlight">Web Developer</span> with a strong foundation in <span class="highlight">Electronics and Communication Engineering</span>, currently pursuing my Bachelor's at <strong>K.S. School of Engineering and Management</strong>. With a CGPA of 8.54, I have developed interest in technology, particularly in <span class="highlight">web development</span>.
+                </p>
+                <p>
+                    I have hands-on experience in web technologies, having developed an award-winning <span class="highlight">educational website</span> during my internship at PygenicArc. This project helped me hone my skills in <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>, while also teaching me the importance of teamwork and leadership. It’s been a rewarding journey, and I’m excited to continue expanding my expertise in areas like <span class="highlight">AI/ML</span> and <span class="highlight">IoT</span>.
+                </p>
+                <p>
+                    One of my biggest strengths is my ability to lead and manage projects. As a member of my college’s research team and a <span class="highlight"><strong>Project Management Intern at RitikaYourHealthCoach(RYHC)</strong></span>, I have consistently demonstrated strong organizational and problem-solving abilities. These experiences have sharpened my soft skills, including communication, decision-making, and time management.
+                </p>
+                <p>
+                    My ultimate goal is to combine my technical skills and my passion for learning to build meaningful, impactful projects. I'm eager to contribute to an innovative organization that values continuous learning and growth, where I can make a real difference with my skills in both <strong>software development</strong> and <strong>project management</strong>.
+                </p>
+                <p>
+                    In addition to my technical pursuits, I am actively involved in volunteer work through the <span class="highlight"><strong> Service Scheme (NSS)</strong></span> and have served as a <span class="highlight"><strong>Campus Ambassador </strong></span> at <span class="highlight"><strong>E-cell IIT Bombay</strong></span>. My experiences in leadership and community service have greatly enriched my personal and professional growth, inspiring me to continue contributing to society while advancing my career.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Skills Section -->
+    <section id="skills" class="hidden slide-in-right">
+        <h2 class="interactive">Skills</h2>
+        <table class="skills-table">
+            <tr>
+                <th>Domain</th>
+                <th>Skills</th>
+            </tr>
+            <tr>
+                <td>Frontend Development</td>
+                <td>HTML, CSS, JavaScript, Bootstrap</td>
+            </tr>
+            <tr>
+                <td style=" color: rgb(255, 255, 255);">Version Control and Collaborationt</td>
+                <td style=" color: rgb(255, 255, 255);">GitHub</td>
+            </tr>
+            <tr>
+                <td>Programming Languages</td>
+                <td>Python, C, Java (Basic)</td>
+            </tr>
+            <tr>
+                <td style=" color: rgb(255, 255, 255);">Embedded Systems</td>
+                <td style=" color: rgb(255, 255, 255);">Arduino UNO, ESP-32, MATLAB</td>
+            </tr>
+            <tr>
+                <td>Soft Skills</td>
+                <td>Leadership, Communication, Project Management</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="skills" class="hidden slide-in-left">
+        <h2 class="interactive">Education Background</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h4>School</h4><br>
+                <ul style="color: black;">
+                    ICSE, Aradhana Academy - 87%<br>
+                </ul>                  
+            </div>
+        
+            <div class="card">
+                <h4>PU College</h4><br>
+                <ul style="color: black;">
+                    PCMB, SSMRV PU College - 93.5%<br>
+                </ul>                  
+            </div>
+            <div class="card">
+                <h4>Undergraduate College</h4><br>
+                <ul style="color: black;">
+                    B.E. in Electronics and Communication Engineering, CGPA: 8.54<br>
+                </ul>                  
+            </div>
+        </div>
+    </section>
+    
+     <!-- Languages Known Section -->
+<section id="languages" class="hidden slide-in-right">
+    <h2 class="interactive">Languages Known</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h4>English</h4>
+            <p>Fluent</p>
+            
+        </div>
+        <div class="card">
+            <h4>Hindi</h4>
+            <p>Fluent</p>
+            
+        </div>
+        <div class="card">
+            <h4>Kannada</h4>
+            <p>Native</p>
+           
+        </div>
+        <div class="card">
+            <h4>Tulu</h4>
+            <p>Native</p>
+           
+        </div>
+    </div>
+</section>
+<section id="internships" class="hidden slide-in-left">
+    <h2 class="interactive">Internships</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3 style="color: black;">PygenicArc</h3>
+            <p><strong>10/2023 - 11/2023</strong></p>
+            <p>Gained knowledge in HTML, CSS, and JavaScript basics.</p>
+            <p><strong>Project:</strong> Developed an educational website providing study materials for school students.</p>
+            
+        </div>
+        <div class="card">
+            <h3 style="color: black;">Campus Ambassador at E-cell, IIT-Bombay</h3>
+            <p><strong>16/07/2024 - Present</strong></p>
+            <p>As a Campus Ambassador for E-cell, IIT-Bombay, I actively promote entrepreneurship initiatives on my campus, connecting students with resources, workshops, and events that foster innovation and leadership skills.</p>
+         
+        </div>
+        <div class="card">
+            <h3 style="color: black;">Python Development Course at Pinnacle Labs</h3>
+            <p><strong>18/07/2024 - 17/08/2024</strong></p>
+            <p><strong>Project: </strong> An alarm program with customizable tones and snooze options.<br>
+                Built a monthly calendar app that allows users to set and manage reminders.<br>
+                Created a quiz platform with customizable quizzes, scoring, and a user-friendly interface.</p>
+            
+        </div>
+        <div class="card">
+            <h3 style="color: black;">Project Management Intern at RitikaYourHealth Coach</h3>
+            <p><strong>29/08/2024 - Present</strong></p>
+            <p>I handle social media scheduling, analyze engagement, and coordinate with the team—gaining skills in project management and digital marketing.</p>
+        </div>
+    </div>
+</section>
+
+<section id="certifications" class="hidden slide-in-right">
+    <h2 class="interactive">Experiences</h2>
+    <div class="card-grid">
+        <div class="card"  style="max-width: 1500px;">
+            <h3>1. Campus Ambassador for E-Cell, IIT Bombay</h3>
+            <p>As a Campus Ambassador for E-Cell, IIT Bombay, I've undertaken a range of tasks that helped deepen my understanding of entrepreneurship and college club dynamics:<br><br>
+                <strong>College Clubs:</strong> I began by interviewing our college's E-Cell and similar clubs, gaining insights into their functioning. This gave me an initial perspective on club management and networking.<br>
+                <strong> National Entrepreneurship Challenge (NEC):</strong> I worked with a team to either establish or enhance our E-Cell, guiding us through tasks that build entrepreneurial momentum. This involved registering our team, completing the initial Headstart tasks, and documenting progress.<br>
+                <strong>Developing a Business Model:</strong> I created a viable business idea by identifying a local problem, designing a solution, and crafting a detailed pitch deck, covering aspects like customer segments, revenue streams, and value propositions.<br>
+                <strong>Networking on the PhysicsWallah Platform:</strong> I registered our E-Cell on the PhysicsWallah ambassador platform, gaining a small milestone in return.<br>
+                <strong>Forming and Engaging Teams:</strong> I established an E-Cell team by circulating a Google Form and collecting responses from interested students, fostering collaborative spirit for future events.<br>
+                <strong>Entrepreneurship Workshop Planning:</strong> I designed a structured workshop, planned promotion strategies, and set incentives to engage students, along with a timeline for successful execution.<br>
+                <strong>National Case Study Competition:</strong> Lastly, I participated in the National Case Study competition by completing registration and the first round, exploring logistics and supply chain themes for real-world application.<br>
+               <br> These tasks strengthened my leadership, event management, and networking skills, bringing me closer to fostering a vibrant entrepreneurial culture on campus.</p><br>
+        </div></div>
+        <div class="card-grid">
+            <div class="card"  style="max-width: 1500px;">
+               <h3>2. PygenicArc</h3>
+               <p>At PygenicArc:<br><br><strong>Project Overview:</strong> Created the frontend for an educational website dedicated to providing school students with easy access to study materials.<br>
+                   <strong>Scope:</strong> Focused on building an intuitive and visually appealing user interface.<br>
+                   <strong>Tools and Skills Used:</strong> Applied HTML for structuring content, CSS for styling and layout, and basic JavaScript for interactive elements.<br>
+                   <strong> Objective:</strong> Designed the website to be simple to navigate, helping students find resources efficiently.<br>
+                   <strong>Outcome:</strong> Developed a responsive, user-friendly frontend that enhances students' learning experiences.</p></div></div>
+      <br>  <div class="card-grid">
+        <div class="card"  style="max-width: 1500px;">
+               <h3 >3. Project Management Intern at RitikaYourHealthCoach</h3>
+               <p>As a Project Management Intern at RitikaYourHealthCoach(RYHC), I help manage and schedule social media content. This experience has taught me:<br><br>
+                <strong>-How to plan and organize posts for consistent engagement<br>
+                -Skills in analyzing social media data to improve our strategy<br>
+                -Effective communication with team members to streamline content creation<br></strong>
+                It’s been great to support a health-focused mission while building my project management and digital marketing skills.</p><br><br></div></div>
+                <div class="card-grid">
+                    <div class="card"  style="max-width: 1500px;">
+                <h3 >4. Python Development Course at Pinnacle Labs</h3>
+                <p>During my Python Development Course at Pinnacle Labs, I completed three main projects: <br><br>
+                    <strong>-Developed an alarm program in Python with customizable tones and snooze options.<br>
+                    -Built a monthly calendar app that allows users to set and manage reminders.<br>
+                    -Created a quiz platform with customizable quizzes, scoring, and a user-friendly interface, suitable for both educational and entertainment use.</strong></p><br><br>
+                    </div></div>
+                    <div class="card-grid">
+                        <div class="card"  style="max-width: 1500px; padding: 40px;">
+                    <h3 >5. Teaching Intern through NSS</h3>
+                    <p>As a Teacher in the Government School in Gottigere, Bangalore: <br><br>
+                        <strong>-Responsibilities:Assisted in teaching science lab experiments to students at a Government School.<br>
+                        -Impact:Inspired curiosity and practical skills in students, enhancing their overall educational experience.<br>
+                       -Skills Developed: Aimed to foster students' understanding of scientific concepts through hands-on learning.<br><br>
+                    Overall loved the experience!</p></strong>
+                       </div></div></section>
+<section id="certifications" class="hidden slide-in-right">
+    <h2 class="interactive">Notable Certifications</h2>
+    <div class="card-grid">
+        <div class="card"  style="max-width: 1500px;">
+    <ul>
+        <li><strong>Hands-on Workshop:</strong> IoT using Blynk and Firebase Cloud (8-07-2023 to 9-07-2023)</li>
+        <li><strong>Seminar:</strong> IPR Literacy for Academia and Research Institutions (27-07-2023)</li>
+        <li><strong>Participation:</strong> Strategy Formulation and Data Visualization, IIT Madras</li>
+        <li><strong>Internship Project Winner:</strong> Educational website development at PygenicArc</li>
+        <li><strong>Virtual Internship:</strong> Python Development Course at Pinnacle Labs</li>
+    </ul></div></div>
+</section>
+
+<section id="achievements" class="hidden slide-in-left">
+    <h2 class="interactive">Certifications</h2>
+    <img src="Pinnacle.png" width="500" height="300">
+    <img src="Pygenicarc.jpg" width="400" height="300">
+    <img src="Screenshot (337).png" width="500" height="300">
+    <img src="blynk certificate.JPG" width="400" height="300">
+</section>
+
+<section id="achievements" class="hidden slide-in-right">
+    <h2 class="interactive">Strengths and Achievements</h2>
+    <div class="card-grid">
+        <div class="card" style="max-width: 1500px;">
+    <ul>
+        <li><strong>Social Responsibility:</strong> NSS volunteer at Virupakshipura village, Karnataka.</li>
+        <li>1. Volunteered as a teacher in a government school in Bengaluru and coordinated cultural events.</li>
+        <li>2. Rotaract Member (2022-23).</li>
+        <li><strong>Campus Ambassador for E-Cell club at college.</li>
+        <li>Member of UG Research Team at college.</li>
+        <li>Gold Medal in Group Dance Competition.</li>
+        <li>First Prize for an educational website project during internship at PygenicArc.</li>
+        <li>2023-Present: Student Intern at PygenicArc.</li></strong>
+    </ul></div></div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="hidden slide-in-left">
+        <h2 class="interactive">Contact</h2>
+        <div class="card"  style="max-width: 1000px;">
+            <p style="text-align: center;">Email: <a href="mailto:ananyabshetty27228@gmail.com">ananyabshetty27228@gmail.com</a></p>
+            <p style="text-align: center;">Phone: 9880919663</p>
+            <p style="text-align: center;"><a href="https://www.linkedin.com/in/ananya-b-shetty-8a9676241">LinkedIn</a> | <a href="https://www.github.com/ananyabshetty">GitHub</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Ananya B Shetty</p>
+    </footer>
+    <script>
+        // Custom cursor element
+        const cursor = document.createElement('div');
+        cursor.classList.add('custom-cursor');
+        document.body.appendChild(cursor);
+
+        // Update cursor position on mousemove
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.left = e.clientX + 'px';
+        });
+
+        // Intersection Observer for Smooth Scrolling Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe each section for smooth entry with slide-in effects
+        document.querySelectorAll('.hidden').forEach((section, index) => {
+            if (index % 2 === 0) {
+                section.classList.add('slide-in-left');
+            } else {
+                section.classList.add('slide-in-right');
+            }
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
